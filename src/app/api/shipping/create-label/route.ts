@@ -8,13 +8,15 @@ export async function POST(req: Request) {
   const body = await req.json()
 
   try {
-    const label = await shipengine.createLabel({
+    const label = await shipengine.createLabelFromShipmentDetails({
       shipment: {
-        service_code: body.serviceCode,
-        ship_to: body.shipTo,
-        ship_from: body.shipFrom,
+        serviceCode: body.serviceCode,  // Correct property name
+        shipTo: body.shipTo,            // Updated property name
+        shipFrom: body.shipFrom,        // Updated property name
         packages: body.packages,
-      },
+        carrierId: body.carrierId,      // Add carrierId (you may need to fetch this dynamically)
+        shipDate: body.shipDate,        // Add shipDate (could be Date.now() or any other valid date)
+      }
     })
 
     return NextResponse.json({ success: true, label })
