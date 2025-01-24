@@ -4,7 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { ShoppingCart, Heart } from "lucide-react"
-
+import { useCart } from "@/components/providers/cart-provider"
+import { useToast } from "@/hooks/use-toast"
 const categories = [
 
   {
@@ -225,34 +226,73 @@ const categories = [
 
 export default function CategoryPage() {
   const params = useParams()
+  const { addItem, toggleWishlist, wishlist } = useCart()
+  const { toast } = useToast()
+
   const category = categories.find((c) => c.id === params.category)
 
   if (!category) {
     return <div>Category not found</div>
   }
 
+  const handleAddToCart = (product: any) => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: 1,
+    })
+    toast({
+      title: "Added to cart",
+      description: `${product.name} has been added to your cart.`,
+    })
+  }
+
+  const handleToggleWishlist = (product: any) => {
+    toggleWishlist(product.id)
+    toast({
+      title: wishlist.includes(product.id) ? "Removed from wishlist" : "Added to wishlist",
+      description: `${product.name} has been ${wishlist.includes(product.id) ? "removed from" : "added to"} your wishlist.`,
+    })
+  }
+
   return (
-    <div className="container bg-gradient-to-r via-[#CCD0CF] from-[#9BA8AB] to-[#4A5C6A]  mx-auto px-20 py-32">
-      <h1 className="text-4xl font-minibold mb-8"style={{textShadow:"2px 2px 2px black"}}>{category.name}</h1>
+    <div className="container bg-gradient-to-r via-[#CCD0CF] from-[#9BA8AB] to-[#4A5C6A] mx-auto px-20 py-32">
+      <h1 className="text-4xl font-minibold mb-8" style={{ textShadow: "2px 2px 2px black" }}>
+        {category.name}
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {category.products.map((product) => (
           <div key={product.id} className="group rounded-lg p-4">
             <Link href={`/product/${product.id}`}>
               <div className="relative aspect-square py-4 mb-4 transition-transform transform duration-300 ease-in-out hover:scale-105">
-                <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-contain"style={{ boxShadow: "2px 2px 2px #6141B, -2px -2px 2px #06141B" }} />
+                <Image
+                  src={product.image || "/placeholder.svg"}
+                  alt={product.name}
+                  fill
+                  className="object-contain"
+                  style={{ boxShadow: "2px 2px 2px #6141B, -2px -2px 2px #06141B" }}
+                />
               </div>
               <h3 className="font-medium group-hover:text-blue-600">{product.name}</h3>
               <p className="text-gray-600">{product.brand}</p>
               <p className="font-bold mt-2">Rs. {product.price.toLocaleString()}</p>
             </Link>
             <div className="flex gap-2 mt-4">
-              <button className="flex-1 bg-black text-white px-4 py-2 rounded-md flex items-center justify-center gap-2">
+              <button
+                onClick={() => handleAddToCart(product)}
+                className="flex-1 bg-black text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors"
+              >
                 <ShoppingCart className="h-4 w-4" />
                 Add to Cart
               </button>
-              <button className="p-2 border rounded-md">
-                <Heart className="h-4 w-4" />
+              <button
+                onClick={() => handleToggleWishlist(product)}
+                className="p-2 border rounded-md hover:bg-gray-100 transition-colors"
+              >
+                <Heart className={`h-4 w-4 ${wishlist.includes(product.id) ? "fill-red-500" : ""}`} />
               </button>
             </div>
           </div>

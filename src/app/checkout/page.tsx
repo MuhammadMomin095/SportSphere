@@ -1,3 +1,5 @@
+"use client";
+
 import { ShippingLabelCreator } from "@/components/shipping-label-creator"
 import { useCart } from "@/components/providers/cart-provider"
 
