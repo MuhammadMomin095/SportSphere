@@ -1,43 +1,60 @@
-'use client'
+"use client"
 
-import { Link } from 'lucide-react'
-import Image from 'next/image'
+import { ArrowRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function About() {
   return (
-    
-    <section className="py-12">
-      <div className="container mx-auto px-12">
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-        >
-          <div>
-            <Image
-              src="/bb.jpg"
-              alt="Tattoo Machine"
-              width={600}
-              height={100}
-              className="rounded-lg h-[550px] transition-transform transform duration-300 ease-in-out hover:scale-105 cursor-pointer"style={{ boxShadow: "14px 14px 62px #06141B, -8px -8px 62px #06141B" }}
-            />
-          </div>
-          <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-red-700"style={{textShadow:"2px 2px 2px black"}}>About Us</h2>
-            <p className="text-gray-200">
-              Berger Tattoo Studio is a premier destination for high-quality tattoos and exceptional artistry. Our team of skilled artists is dedicated to bringing your vision to life with precision and creativity.
+    <section className="py-16 bg-gradient-to-br from-[#06141B] to-black">
+      <div className="containe mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8 order-2 lg:order-1">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">
+              About <span className="text-red-500">SportsPro</span>
+            </h2>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              SportsPro is your ultimate destination for premium sports equipment and gear. With over two decades of
+              experience, we've been empowering athletes of all levels with top-quality products from renowned brands.
             </p>
-            <Link href="about">
-            <button
-              className="bg-red-600 text-white px-6 py-2 rounded text-sm uppercase tracking-wider"
-            >
-              Learn More
-            </button>
+            <ul className="space-y-4">
+              {[
+                "Wide range of sports equipment",
+                "Expert advice from sports professionals",
+                "Quality assurance on all products",
+                "Competitive pricing",
+              ].map((item, index) => (
+                <li key={index} className="flex items-center text-gray-300">
+                  <ArrowRight className="h-5 w-5 text-red-500 mr-2" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link href="/about" className="inline-block">
+              <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                Learn More
+              </button>
             </Link>
-            
+          </div>
+          <div className="order-1 lg:order-2">
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] w-full rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+              <Image
+                src="/bb.jpg"
+                alt="Various Sports Equipment"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-white text-xl sm:text-2xl font-semibold">Empowering athletes with top-notch gear</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-   
-
   )
 }
+

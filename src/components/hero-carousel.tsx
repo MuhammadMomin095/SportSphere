@@ -53,13 +53,13 @@ export function HeroCarousel() {
 
   return (
     <div className="relative bg-gradient-to-b from-[#06141B] via-[#4A5C6A] to-[#06141B]">
-      <div className="overflow-hidden"style={{boxShadow:"10px 28px 20px #06141B, -10px -28px 20px #06141B"}}>
+      <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide) => (
-            <div key={slide.id} className="w-full flex-shrink-0">
+            <div key={slide.id} className="w-full h-full flex-shrink-0">
               <Link href={slide.link}>
                 <div className="relative aspect-[21/9]">
                   <Image

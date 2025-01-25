@@ -1,49 +1,87 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { ArrowRight, Dumbbell, FishIcon as Swim, Heart } from "lucide-react"
 
 const featuredCategories = [
   {
     title: "CARDIO EQUIPMENT",
-    image:
-      "/cardio.jpg",
+    description: "Boost your endurance and burn calories with our top-of-the-line cardio machines.",
+    image: "/cardio.jpg",
     link: "/categories/fitness/cardio",
+    icon: Heart,
+    items: ["Treadmills", "Exercise Bikes", "Ellipticals", "Rowing Machines"],
   },
   {
     title: "SWIMMING ACCESSORIES",
-    image:
-      "/swiming.jpg",
+    description: "Dive into peak performance with our premium swimming gear and accessories.",
+    image: "/swimming.jpg",
     link: "/categories/swimming/accessories",
+    icon: Swim,
+    items: ["Goggles", "Swim Caps", "Training Fins", "Waterproof Smartwatches"],
   },
   {
     title: "WEIGHTS AND DUMBBELLS",
-    image:
-      "/gym.jpg",
+    description: "Build strength and sculpt your body with our comprehensive range of weights.",
+    image: "/gym.jpg",
     link: "/categories/fitness/weights",
+    icon: Dumbbell,
+    items: ["Dumbbells", "Barbells", "Kettlebells", "Weight Plates"],
   },
 ]
 
 export function FeaturedCategories() {
+  const [hoveredCategory, setHoveredCategory] = useState<number | null>(null)
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
-      {featuredCategories.map((category, index) => (
-        <Link key={index} href={category.link} className="group relative" style={{boxShadow:"10px 28px 20px #06141B, -10px -28px 20px #06141B"}}>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-lg transition-transform transform duration-300 ease-in-out hover:scale-105 cursor-pointer">
-            <Image
-              src={category.image || "/placeholder.svg"}
-              alt={category.title}
-              fill
-              className="object-cover transition-transform group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white">
-              <h3 className="text-2xl font-bold text-center mb-4">{category.title}</h3>
-              <button className="bg-white text-black px-6 py-2 rounded-md hover:bg-gray-100 transition-colors">
-                SHOP NOW
-              </button>
-            </div>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <section className="py-16 bg-gradient-to-br from-[#06141B] to-black">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">Featured Categories</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {featuredCategories.map((category, index) => (
+            <Link
+              key={index}
+              href={category.link}
+              className="group relative overflow-hidden rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              onMouseEnter={() => setHoveredCategory(index)}
+              onMouseLeave={() => setHoveredCategory(null)}
+            >
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <Image
+                  src={category.image || "/placeholder.svg"}
+                  alt={category.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end p-6">
+                  <category.icon className="text-red-500 w-10 h-10 mb-4" />
+                  <h3 className="text-white text-2xl font-bold mb-2">{category.title}</h3>
+                  {hoveredCategory === index && (
+                    <div className="transform transition-all duration-300 ease-in-out translate-y-0 opacity-100">
+                      <p className="text-gray-200 mb-4">{category.description}</p>
+                      <ul className="text-gray-300 mb-4">
+                        {category.items.map((item, itemIndex) => (
+                          <li key={itemIndex} className="flex items-center">
+                            <ArrowRight className="h-4 w-4 text-red-500 mr-2" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                      <span className="inline-flex items-center text-red-500 font-semibold">
+                        Shop Now
+                        <ArrowRight className="h-5 w-5 ml-2" />
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 

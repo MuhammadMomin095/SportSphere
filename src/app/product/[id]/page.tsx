@@ -3,9 +3,11 @@
 import { useState } from "react"
 import Image from "next/image"
 import { useParams } from "next/navigation"
-import { Heart, Minus, Plus, ShoppingCart } from "lucide-react"
+import { Heart, Minus, Plus, ShoppingCart, Star } from "lucide-react"
 import { useCart } from "@/components/providers/cart-provider"
 import { useToast } from "@/hooks/use-toast"
+import { motion, AnimatePresence } from "framer-motion"
+
 
 const products = [
   {
@@ -20,6 +22,8 @@ const products = [
       "/tabletinus.jpg",
       "/1.jpg",
     ],
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "tennis-2",
@@ -33,6 +37,8 @@ const products = [
       "/tabletinus.jpg",
       "/1.jpg",
     ],
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "boxing-mma-1",
@@ -46,6 +52,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "boxing-mma-2",
@@ -59,6 +67,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Babolat",
+    rating: 4.8,
+    reviews: 124,
   },
 
 
@@ -74,6 +84,8 @@ const products = [
       "/crickets.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "cricket-2",
@@ -87,6 +99,8 @@ const products = [
       "/crickets.jpg",
     ],
     brand: "Babolat",
+    rating: 4.8,
+    reviews: 124,
   },
 
   {
@@ -101,6 +115,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "valleyballs-2",
@@ -114,6 +130,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Babolat",
+    rating: 4.8,
+    reviews: 124,
   },
 
   {
@@ -128,6 +146,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "snookers-2",
@@ -141,6 +161,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Babolat",
+    rating: 4.8,
+    reviews: 124,
   },
 
   {
@@ -155,6 +177,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "FootBall-2",
@@ -168,6 +192,8 @@ const products = [
       "/footballs.jpg",
     ],
     brand: "Babolat",
+    rating: 4.8,
+    reviews: 124,
   },
 
   {
@@ -182,6 +208,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
 
   {
@@ -196,6 +224,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "pattitable-2",
@@ -209,6 +239,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Babolat",
+    rating: 4.8,
+    reviews: 124,
   },
 
   {
@@ -223,6 +255,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "Hockey-2",
@@ -236,6 +270,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Babolat",
+    rating: 4.8,
+    reviews: 124,
   },
 
   {
@@ -250,6 +286,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Wilson",
+    rating: 4.8,
+    reviews: 124,
   },
   {
     id: "Squash-2",
@@ -263,6 +301,8 @@ const products = [
       "/1.jpg",
     ],
     brand: "Babolat",
+    rating: 4.8,
+    reviews: 124,
   },
 
 ]
@@ -270,114 +310,154 @@ const products = [
 
 
 
-  export default function ProductPage() {
-    const params = useParams()
-    const [quantity, setQuantity] = useState(1)
-    const [selectedImage, setSelectedImage] = useState(0)
-    const { addItem, toggleWishlist, wishlist } = useCart()
-    const { toast } = useToast()
-  
-    const product = products.find((p) => p.id === params.id)
-  
-    if (!product) {
-      return <div>Product not found</div>
-    }
-  
-    const handleAddToCart = () => {
-      addItem({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        image: product.images[0],
-        quantity: quantity,
-      })
-      toast({
-        title: "Added to cart",
-        description: `${quantity} ${product.name} has been added to your cart.`,
-      })
-    }
-  
-    const handleToggleWishlist = () => {
-      toggleWishlist(product.id)
-      toast({
-        title: wishlist.includes(product.id) ? "Removed from wishlist" : "Added to wishlist",
-        description: `${product.name} has been ${wishlist.includes(product.id) ? "removed from" : "added to"} your wishlist.`,
-      })
-    }
-  
+export default function ProductPage() {
+  const params = useParams()
+  const [quantity, setQuantity] = useState(1)
+  const [selectedImage, setSelectedImage] = useState(0)
+  const { addItem, toggleWishlist, wishlist } = useCart()
+  const { toast } = useToast()
+
+  const product = products.find((p) => p.id === params.id)
+
+  if (!product) {
     return (
-      <div className="container bg-gradient-to-r via-[#CCD0CF] from-[#9BA8AB] to-[#4A5C6A] mx-auto px-20 py-40">
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <div className="relative aspect-square border rounded-lg">
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">Product Not Found</h1>
+        <p className="text-gray-600">Sorry, we couldn't find the product you're looking for.</p>
+      </div>
+    )
+  }
+
+  const handleAddToCart = () => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+      quantity: quantity,
+    })
+    toast({
+      title: "Added to cart",
+      description: `${quantity} ${product.name} has been added to your cart.`,
+    })
+  }
+
+  const handleToggleWishlist = () => {
+    toggleWishlist(product.id)
+    toast({
+      title: wishlist.includes(product.id) ? "Removed from wishlist" : "Added to wishlist",
+      description: `${product.name} has been ${wishlist.includes(product.id) ? "removed from" : "added to"} your wishlist.`,
+    })
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-blue-50 via-blue-100 to-indigo-100">
+      <div className="container mx-auto px-12 py-52">
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="space-y-6">
+            <motion.div
+              className="relative aspect-square rounded-lg overflow-hidden shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <Image
                 src={product.images[selectedImage] || "/placeholder.svg"}
                 alt={product.name}
                 fill
-                className="object-contain p-4"
+                className="object-cover"
               />
-            </div>
-            <div className="flex gap-4">
+            </motion.div>
+            <div className="flex gap-4 overflow-x-auto pb-2">
               {product.images.map((image, index) => (
-                <button
+                <motion.button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`relative w-20 aspect-square border rounded-lg ${
-                    selectedImage === index ? "border-blue-500" : ""
+                  className={`relative w-20 aspect-square rounded-md overflow-hidden ${
+                    selectedImage === index ? "ring-2 ring-blue-500" : ""
                   }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Image
                     src={image || "/placeholder.svg"}
                     alt={`${product.name} ${index + 1}`}
                     fill
-                    className="object-contain p-2"
+                    className="object-cover"
                   />
-                </button>
+                </motion.button>
               ))}
             </div>
           </div>
-  
-          <div className="space-y-6">
+
+          <div className="space-y-8">
             <div>
-              <h1 className="text-3xl font-bold">{product.name}</h1>
-              <p className="text-gray-600">{product.brand}</p>
-            </div>
-  
-            <p className="text-2xl font-bold">Rs. {product.price.toLocaleString()}</p>
-  
-            <p className="text-gray-600">{product.description}</p>
-  
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-2 border rounded-md">
-                  <Minus className="h-4 w-4" />
-                </button>
-                <span className="text-xl font-medium w-12 text-center">{quantity}</span>
-                <button onClick={() => setQuantity(quantity + 1)} className="p-2 border rounded-md">
-                  <Plus className="h-4 w-4" />
-                </button>
+              <h1 className="text-4xl font-bold text-gray-800 mb-2">{product.name}</h1>
+              <p className="text-xl text-gray-600 mb-4">{product.brand}</p>
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`w-5 h-5 ${
+                      i < Math.floor(product.rating) ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+                    }`}
+                  />
+                ))}
+                <span className="ml-2 text-gray-600">({product.reviews} reviews)</span>
               </div>
-  
+              <p className="text-3xl font-bold text-blue-600">Rs. {product.price.toLocaleString()}</p>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed">{product.description}</p>
+
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <motion.button
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="p-2 border rounded-md hover:bg-gray-100 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Minus className="h-5 w-5 text-gray-600" />
+                </motion.button>
+                <span className="text-2xl font-medium w-12 text-center">{quantity}</span>
+                <motion.button
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="p-2 border rounded-md hover:bg-gray-100 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Plus className="h-5 w-5 text-gray-600" />
+                </motion.button>
+              </div>
+
               <div className="flex gap-4">
-                <button
+                <motion.button
                   onClick={handleAddToCart}
-                  className="flex-1 bg-black text-white px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors"
+                  className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <ShoppingCart className="h-5 w-5" />
                   Add to Cart
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                   onClick={handleToggleWishlist}
                   className="px-6 py-3 border rounded-md hover:bg-gray-100 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Heart className={`h-5 w-5 ${wishlist.includes(product.id) ? "fill-red-500" : ""}`} />
-                </button>
+                  <Heart
+                    className={`h-5 w-5 ${wishlist.includes(product.id) ? "fill-red-500 text-red-500" : "text-gray-600"}`}
+                  />
+                </motion.button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
+}
   
 

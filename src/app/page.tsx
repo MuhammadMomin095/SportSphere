@@ -1,3 +1,8 @@
+"use client"
+
+import { useEffect } from "react"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import Link from "next/link"
 import { HeroCarousel } from "@/components/hero-carousel"
@@ -7,73 +12,99 @@ import { PromoSection } from "@/components/promo-section"
 import About from "@/components/about"
 import { FeaturedProducts } from "@/components/featured-products"
 import { Testimonials } from "@/components/testimonials"
+import type { ReactNode } from "react"
+
+const FadeInSection = ({ children }: { children: ReactNode }) => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView()
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
+    } else {
+      controls.start("hidden")
+    }
+  }, [controls, inView])
+
+  return (
+    <motion.div
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      transition={{ duration: 0.5 }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 export default function HomePage() {
   return (
-    <div>
-    <div className=" lg:px-20 relative bg-gradient-to-b from-gray-800 via-gray-300 to-gray-800 py-20">
-    
-      <div className="container relative mx-auto px-16 z-10 py-8">
+    <div className="bg-gradient-to-b from-gray-400 to-black text-white">
       {/* Hero Carousel */}
       <HeroCarousel />
 
-      {/* Featured Categories / Promo Sections */}
-      <div className="container mx-auto px-16 py-8">
-        <PromoSection />
-      </div>
+      {/* Featured Products */}
+      <FadeInSection>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
+          <FeaturedProducts />
+        </div>
+      </FadeInSection>
 
-      {/* Featured Categories with Shop Now buttons */}
-      <div className="container mx-auto px-16 py-8">
-        <FeaturedCategories />
-      </div>
-      </div>
-      </div>
+      {/* About Section */}
+      <FadeInSection>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-20">
+          <About />
+        </div>
+      </FadeInSection>
 
+      {/* Featured Categories */}
+      <FadeInSection>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
+          <FeaturedCategories />
+        </div>
+      </FadeInSection>
 
-      {/* About Me */}
-      <div className="relative bg-black min-h-screen">
-      <Image src="/ee.jpg" alt="Background" layout="fill" objectFit="cover" quality={100} priority className="opacity-40" />
-      <div className="container relative mx-auto px-16 z-10 py-8">
-        <About />
-      </div>
-      </div>
-
+      {/* Promo Section */}
+      <FadeInSection>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
+          <PromoSection />
+        </div>
+      </FadeInSection>
 
       {/* Main Categories Section */}
-      <div className="relative bg-gradient-to-b from-gray-800 via-gray-300 to-gray-800 min-h-screen">
-      <div className="container mx-auto px-28 py-16 z-10 relative">
-        <h2 className="text-5xl font-bold mb-8 text-center text-red-700 " style={{textShadow:"2px 2px 2px black"}}>Our Categories</h2>
-        <CategoryGrid />
+      <FadeInSection>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
+          <CategoryGrid />
         </div>
+      </FadeInSection>
+
+      {/* Testimonials */}
+      <FadeInSection>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
+          <Testimonials />
         </div>
+      </FadeInSection>
 
-
-
-
-
-        <div className="relative bg-gradient-to-b from-gray-800 via-gray-300 to-gray-800  min-h-screen">
-      
-      <div className="container mx-auto px-14 py-16 z-10 relative">
-      <FeaturedProducts />
+      {/* Sports-themed Animation */}
+      <div className="fixed bottom-0 left-0 w-full h-16 pointer-events-none">
+        <motion.div
+          className="absolute bottom-0 left-0 w-8 h-8 bg-white rounded-full"
+          animate={{
+            x: ["0%", "100%"],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+        />
       </div>
-    </div>
-
-
-
-    {/* About Me */}
-    <div className="relative bg-gradient-to-b from-gray-800 to-gray-300 min-h-screen">
-     
-      <div className="container relative mx-auto px-16 z-10 py-8">
-      <Testimonials />
-      </div>
-    </div>
-   
-
-
-
-
-      
-
     </div>
   )
 }

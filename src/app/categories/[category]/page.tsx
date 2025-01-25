@@ -1,11 +1,14 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { ShoppingCart, Heart } from "lucide-react"
 import { useCart } from "@/components/providers/cart-provider"
 import { useToast } from "@/hooks/use-toast"
+import { motion, AnimatePresence } from "framer-motion"
+
 const categories = [
 
   {
@@ -228,6 +231,8 @@ export default function CategoryPage() {
   const params = useParams()
   const { addItem, toggleWishlist, wishlist } = useCart()
   const { toast } = useToast()
+  const [sortBy, setSortBy] = useState("name")
+  const [filterBrand, setFilterBrand] = useState("")
 
   const category = categories.find((c) => c.id === params.category)
 
@@ -257,47 +262,107 @@ export default function CategoryPage() {
     })
   }
 
-  return (
-    <div className="container bg-gradient-to-r via-[#CCD0CF] from-[#9BA8AB] to-[#4A5C6A] mx-auto px-20 py-32">
-      <h1 className="text-4xl font-minibold mb-8" style={{ textShadow: "2px 2px 2px black" }}>
-        {category.name}
-      </h1>
+  const sortedAndFilteredProducts = category.products
+    .filter((product) => !filterBrand || product.brand === filterBrand)
+    .sort((a, b) => {
+      if (sortBy === "name") return a.name.localeCompare(b.name)
+      if (sortBy === "price") return a.price - b.price
+      return 0
+    })
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {category.products.map((product) => (
-          <div key={product.id} className="group rounded-lg p-4">
-            <Link href={`/product/${product.id}`}>
-              <div className="relative aspect-square py-4 mb-4 transition-transform transform duration-300 ease-in-out hover:scale-105">
-                <Image
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  fill
-                  className="object-contain"
-                  style={{ boxShadow: "2px 2px 2px #6141B, -2px -2px 2px #06141B" }}
-                />
-              </div>
-              <h3 className="font-medium group-hover:text-blue-600">{product.name}</h3>
-              <p className="text-gray-600">{product.brand}</p>
-              <p className="font-bold mt-2">Rs. {product.price.toLocaleString()}</p>
-            </Link>
-            <div className="flex gap-2 mt-4">
-              <button
-                onClick={() => handleAddToCart(product)}
-                className="flex-1 bg-black text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors"
-              >
-                <ShoppingCart className="h-4 w-4" />
-                Add to Cart
-              </button>
-              <button
-                onClick={() => handleToggleWishlist(product)}
-                className="p-2 border rounded-md hover:bg-gray-100 transition-colors"
-              >
-                <Heart className={`h-4 w-4 ${wishlist.includes(product.id) ? "fill-red-500" : ""}`} />
-              </button>
-            </div>
+  const uniqueBrands = Array.from(new Set(category.products.map((product) => product.brand)))
+
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-blue-50 via-blue-100 to-indigo-100">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-40">
+        <h1 className="text-4xl font-bold mb-8 text-gray-800">{category.name}</h1>
+
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 space-y-4 sm:space-y-0">
+          <div className="flex items-center space-x-4">
+            <label htmlFor="sort" className="text-gray-700">
+              Sort by:
+            </label>
+            <select
+              id="sort"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="border rounded-md px-2 py-1"
+            >
+              <option value="name">Name</option>
+              <option value="price">Price</option>
+            </select>
           </div>
-        ))}
+          <div className="flex items-center space-x-4">
+            <label htmlFor="brand" className="text-gray-700">
+              Filter by brand:
+            </label>
+            <select
+              id="brand"
+              value={filterBrand}
+              onChange={(e) => setFilterBrand(e.target.value)}
+              className="border rounded-md px-2 py-1"
+            >
+              <option value="">All Brands</option>
+              {uniqueBrands.map((brand) => (
+                <option key={brand} value={brand}>
+                  {brand}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <AnimatePresence>
+            {sortedAndFilteredProducts.map((product) => (
+              <motion.div
+                key={product.id}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105"
+              >
+                <Link href={`/product/${product.id}`}>
+                  <div className="relative aspect-square">
+                    <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-lg text-gray-800 group-hover:text-blue-600">{product.name}</h3>
+                    <p className="text-gray-600">{product.brand}</p>
+                    <p className="font-bold mt-2 text-2xl text-blue-600">Rs. {product.price.toLocaleString()}</p>
+                  </div>
+                </Link>
+                <div className="flex gap-2 p-4 bg-gray-50">
+                  <button
+                    onClick={() => handleAddToCart(product)}
+                    className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
+                  >
+                    <ShoppingCart className="h-4 w-4" />
+                    Add to Cart
+                  </button>
+                  <button
+                    onClick={() => handleToggleWishlist(product)}
+                    className="p-2 border rounded-md hover:bg-gray-100 transition-colors"
+                  >
+                    <Heart
+                      className={`h-4 w-4 ${wishlist.includes(product.id) ? "fill-red-500 text-red-500" : "text-gray-600"}`}
+                    />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </div>
   )
 }
+
+
