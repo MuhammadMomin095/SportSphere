@@ -59,9 +59,9 @@ export function FeaturedProducts() {
   }
 
   return (
-    <section className="py-16 bg-gradient-to-br from-[#06141B] to-black">
+    <section className="py-16 ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">Featured Products</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-red-500 mb-12">Featured Products</h2>
 
         <div className="relative h-[400px] sm:h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
           {/* Previous Product */}
@@ -69,7 +69,7 @@ export function FeaturedProducts() {
             className="absolute left-0 top-1/2 -translate-y-1/2 transform -translate-x-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 transition-all duration-300 ease-in-out opacity-60 hover:opacity-80 cursor-pointer"
             onClick={goToPrev}
           >
-            <div className="relative w-full h-full rounded-full overflow-hidden shadow-lg transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+            <div className="relative w-full h-full bg-gradient-to-br from-[#06141B] to-black overflow-hidden shadow-lg transform -rotate-6 hover:rotate-0 transition-transform duration-300">
               <Image
                 src={featuredProducts[prevIndex].image || "/placeholder.svg"}
                 alt={featuredProducts[prevIndex].name}
@@ -82,7 +82,7 @@ export function FeaturedProducts() {
 
           {/* Current Product */}
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 transition-all duration-300 ease-in-out z-10">
-            <div className="relative w-full h-full rounded-full overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
+            <div className="relative w-full h-full  bg-gradient-to-br from-[#06141B] to-black overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
               <Image
                 src={featuredProducts[currentIndex].image || "/placeholder.svg"}
                 alt={featuredProducts[currentIndex].name}
@@ -104,7 +104,7 @@ export function FeaturedProducts() {
             className="absolute right-0 top-1/2 -translate-y-1/2 transform translate-x-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 transition-all duration-300 ease-in-out opacity-60 hover:opacity-80 cursor-pointer"
             onClick={goToNext}
           >
-            <div className="relative w-full h-full rounded-full overflow-hidden shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300">
+            <div className="relative w-full h-full bg-gradient-to-br from-[#06141B] to-black overflow-hidden shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300">
               <Image
                 src={featuredProducts[nextIndex].image || "/placeholder.svg"}
                 alt={featuredProducts[nextIndex].name}

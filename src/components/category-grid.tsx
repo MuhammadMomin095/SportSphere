@@ -82,9 +82,9 @@ export function CategoryGrid() {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
 
   return (
-    <section className="py-16 bg-gradient-to-br from-[#06141B] to-black">
+    <section className="py-16 ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">Explore Our Categories</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-red-500 mb-12">Explore Our Categories</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category) => (
             <Link

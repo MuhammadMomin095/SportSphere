@@ -44,7 +44,7 @@ const FadeInSection = ({ children }: { children: ReactNode }) => {
 
 export default function HomePage() {
   return (
-    <div className="bg-gradient-to-b from-gray-400 to-black text-white">
+    <div className="bg-gradient-to-b from-gray-100 to-white text-white">
       {/* Hero Carousel */}
       <HeroCarousel />
 

@@ -55,11 +55,11 @@ export function Testimonials() {
   }
 
   return (
-    <section className="py-16 bg-gradient-to-br from-[#06141B] to-black">
+    <section className="py-16 ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">What Our Clients Say</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-red-500 mb-12">What Our Clients Say</h2>
         <div className="relative max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl">
+          <div className="bg-gradient-to-br from-[#06141B] to-black p-8 rounded-2xl shadow-2xl">
             <Quote className="text-red-500 w-12 h-12 mb-6 mx-auto" />
             <div className="text-center mb-8">
               <p className="text-lg md:text-xl text-gray-300 italic mb-6">"{testimonials[currentIndex].text}"</p>
