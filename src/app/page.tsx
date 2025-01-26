@@ -3,16 +3,12 @@
 import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import Image from "next/image"
-import Link from "next/link"
-import { HeroCarousel } from "@/components/hero-carousel"
-import { FeaturedCategories } from "@/components/featured-categories"
 import { CategoryGrid } from "@/components/category-grid"
-import { PromoSection } from "@/components/promo-section"
-import About from "@/components/about"
-import { FeaturedProducts } from "@/components/featured-products"
-import { Testimonials } from "@/components/testimonials"
 import type { ReactNode } from "react"
+import { BestSellers } from "@/components/best-sellers"
+import { CategoryShowcase } from "@/components/category-showcase"
+import LatestProducts from "@/components/latest-products"
+import { HeroCarousel } from "@/components/hero-carousel"
 
 const FadeInSection = ({ children }: { children: ReactNode }) => {
   const controls = useAnimation()
@@ -44,51 +40,48 @@ const FadeInSection = ({ children }: { children: ReactNode }) => {
 
 export default function HomePage() {
   return (
-    <div className="bg-gradient-to-b from-gray-100 to-white text-white">
+    <div className="bg-white text-white">
       {/* Hero Carousel */}
       <HeroCarousel />
 
-      {/* Featured Products */}
+
+
+
+        {/* About Section */}
+       <FadeInSection>
+  <div
+    className="container  mx-auto px-4 sm:px-6 lg:px-16 py-8  bg-cover bg-center"
+    >
+    <BestSellers />
+  </div>
+        </FadeInSection>
+
+
+
+
+        {/* Featured Products */}
       <FadeInSection>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
-          <FeaturedProducts />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 ">
+          <CategoryShowcase />
         </div>
       </FadeInSection>
 
-      {/* About Section */}
-      <FadeInSection>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-20">
-          <About />
-        </div>
-      </FadeInSection>
 
-      {/* Featured Categories */}
+  
+      {/* Main Categories Section */}
       <FadeInSection>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
-          <FeaturedCategories />
-        </div>
-      </FadeInSection>
-
-      {/* Promo Section */}
-      <FadeInSection>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
-          <PromoSection />
+      <div className="container  mx-auto px-4 sm:px-6 lg:px-16 py-5  bg-cover bg-center">
+          <CategoryGrid />
         </div>
       </FadeInSection>
 
       {/* Main Categories Section */}
       <FadeInSection>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
-          <CategoryGrid />
+      <div className="container  mx-auto px-4 sm:px-6 lg:px-16 py-5  bg-cover bg-center">
+          <LatestProducts />
         </div>
       </FadeInSection>
 
-      {/* Testimonials */}
-      <FadeInSection>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-16">
-          <Testimonials />
-        </div>
-      </FadeInSection>
 
       {/* Sports-themed Animation */}
       <div className="fixed bottom-0 left-0 w-full h-16 pointer-events-none">

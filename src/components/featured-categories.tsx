@@ -47,6 +47,9 @@ export function FeaturedCategories() {
               className="group relative overflow-hidden rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               onMouseEnter={() => setHoveredCategory(index)}
               onMouseLeave={() => setHoveredCategory(null)}
+              style={{
+                boxShadow: "10px 40px 40px rgba(255, 69, 0, 0.5)", 
+              }}
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <Image

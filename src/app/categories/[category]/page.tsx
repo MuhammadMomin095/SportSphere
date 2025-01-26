@@ -273,10 +273,29 @@ export default function CategoryPage() {
   const uniqueBrands = Array.from(new Set(category.products.map((product) => product.brand)))
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 via-blue-100 to-indigo-100">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-40">
-        <h1 className="text-4xl font-bold mb-8 text-gray-800">{category.name}</h1>
+    <div className="min-h-screen bg-black">
+      <div className="relative bg-gray-900 text-white overflow-hidden">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url('/fun.jpg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: "0.2",
+          }}
+        />
+        <div className="relative z-10 container mx-auto px-4 py-24 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4">{category.name}</h1>
+        </div>
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32 bg-black"
+          style={{
+            clipPath: "polygon(0 100%, 100% 0, 100% 100%)",
+          }}
+        />
+      </div>
 
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 space-y-4 sm:space-y-0">
           <div className="flex items-center space-x-4">
             <label htmlFor="sort" className="text-gray-700">
@@ -317,6 +336,7 @@ export default function CategoryPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
+          
         >
           <AnimatePresence>
             {sortedAndFilteredProducts.map((product) => (
@@ -328,6 +348,9 @@ export default function CategoryPage() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105"
+                style={{
+                  boxShadow: "10px 40px 40px rgba(255, 69, 0, 0.5)", 
+                }}
               >
                 <Link href={`/product/${product.id}`}>
                   <div className="relative aspect-square">

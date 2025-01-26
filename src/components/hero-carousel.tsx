@@ -59,7 +59,7 @@ export function HeroCarousel() {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide) => (
-            <div key={slide.id} className="w-full h-full flex-shrink-0">
+            <div key={slide.id} className="w-full h-[800px] flex-shrink-0">
               <Link href={slide.link}>
                 <div className="relative aspect-[21/9]">
                   <Image

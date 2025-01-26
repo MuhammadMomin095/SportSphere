@@ -33,7 +33,7 @@ export function MegaMenu() {
           <Menu className="w-6 h-6" />
         </SheetTrigger>
         <SheetContent
-          side="left"
+          side="right"
           className="bg-gradient-to-b from-[#06141B] via-black to-[#06141B] text-white h-screen overflow-y-auto"
         >
           <SheetHeader>

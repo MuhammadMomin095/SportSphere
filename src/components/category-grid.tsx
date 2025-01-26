@@ -82,15 +82,15 @@ export function CategoryGrid() {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
 
   return (
-    <section className="py-16 ">
+    <section className=" ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-red-500 mb-12">Explore Our Categories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 className="text-2xl font-bold  text-black mb-12">Explore Our Categories</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category) => (
             <Link
               key={category.name}
               href={category.href}
-              className="group relative overflow-hidden rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
+              className="group relative overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               onMouseEnter={() => setHoveredCategory(category.name)}
               onMouseLeave={() => setHoveredCategory(null)}
             >

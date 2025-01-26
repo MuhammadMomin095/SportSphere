@@ -23,7 +23,7 @@ export function Header() {
 
   return (
     <header
-      className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? " shadow-lg" : ""}`}
+      className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-lg" : ""}`}
     >
       <div className="bg-gray-900 text-white py-2">
         <div className="container mx-auto px-4">
@@ -50,24 +50,29 @@ export function Header() {
       </div>
 
       <div
-        className={`py-4 transition-all duration-300 ${isScrolled ? "" : " "}`}
+        className={`py-4 transition-all duration-300 ${isScrolled ? "bg-white" : "bg-white bg-opacity-90 backdrop-blur-sm"}`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between gap-4">
             <Link href="/" className="flex-shrink-0">
-              <Image src="/logo.png" alt="logo" width={120} height={40} className="h-16 w-auto" />
+              <Image src="/2.jpg" alt="The Sport Store" width={120} height={40} className="h-10 w-auto" />
             </Link>
 
             <div className="flex-1 max-w-xl hidden md:block">
-              
-
-
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search for products..."
+                  className="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+              </div>
             </div>
 
             <div className="flex items-center gap-4">
               <Link
                 href="/cart"
-                className="flex items-center gap-2 text-gray-400 hover:text-blue-600 transition-colors"
+                className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 <div className="relative">
                   <ShoppingCart className="h-6 w-6" />
