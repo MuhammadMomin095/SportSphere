@@ -33,7 +33,7 @@ export default function CartPage() {
   if (items.length === 0) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pt-24">
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto px-4 py-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pt-24">
-      <div className="container mx-auto px-4 lg:px-14 md:px-8 py-24">
+      <div className="container mx-auto px-4 lg:px-14 md:px-8 ">
         <div className="flex items-center gap-4 mb-8">
           <Link href="/categories">
             <motion.div

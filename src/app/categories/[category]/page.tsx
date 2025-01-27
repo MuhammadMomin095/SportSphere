@@ -273,8 +273,8 @@ export default function CategoryPage() {
   const uniqueBrands = Array.from(new Set(category.products.map((product) => product.brand)))
 
   return (
-    <div className="min-h-screen bg-black">
-      <div className="relative bg-gray-900 text-white overflow-hidden">
+    <div className="min-h-screen bg-white">
+      <div className="relative bg-black text-white overflow-hidden">
         <div
           className="absolute inset-0 z-0"
           style={{
@@ -288,7 +288,7 @@ export default function CategoryPage() {
           <h1 className="text-5xl md:text-7xl font-bold mb-4">{category.name}</h1>
         </div>
         <div
-          className="absolute bottom-0 left-0 right-0 h-32 bg-black"
+          className="absolute bottom-0 left-0 right-0 h-32 bg-white"
           style={{
             clipPath: "polygon(0 100%, 100% 0, 100% 100%)",
           }}
@@ -348,9 +348,7 @@ export default function CategoryPage() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105"
-                style={{
-                  boxShadow: "10px 40px 40px rgba(255, 69, 0, 0.5)", 
-                }}
+                
               >
                 <Link href={`/product/${product.id}`}>
                   <div className="relative aspect-square">

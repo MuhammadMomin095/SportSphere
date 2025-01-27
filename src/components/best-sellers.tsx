@@ -26,7 +26,7 @@ export function BestSellers() {
     <div className="min-h-scree">
         
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 ">
-      <div className="font-bold text-2xl text-black">BestSellers</div>
+      <div className="font-bold text-4xl text-black">BestSellers</div>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mt-5 gap-8"
           initial={{ opacity: 0 }}
