@@ -5,10 +5,11 @@ import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { CategoryGrid } from "@/components/category-grid"
 import type { ReactNode } from "react"
-import { BestSellers } from "@/components/best-sellers"
+import SportsShowcase from "@/components/sports-showcase"
 import { CategoryShowcase } from "@/components/category-showcase"
 import LatestProducts from "@/components/latest-products"
-import { HeroCarousel } from "@/components/hero-carousel"
+import About from "@/components/about"
+import HeroCarousel from "@/components/hero-carousel"
 
 const FadeInSection = ({ children }: { children: ReactNode }) => {
   const controls = useAnimation()
@@ -40,19 +41,17 @@ const FadeInSection = ({ children }: { children: ReactNode }) => {
 
 export default function HomePage() {
   return (
-    <div className="bg-white text-white">
+    <div className="bg-black text-white">
       {/* Hero Carousel */}
       <HeroCarousel />
-
-
 
 
         {/* About Section */}
        <FadeInSection>
   <div
-    className="container  mx-auto px-4 sm:px-6 lg:px-16 py-8  bg-cover bg-center"
+    
     >
-    <BestSellers />
+    <SportsShowcase />
   </div>
         </FadeInSection>
 
@@ -61,7 +60,7 @@ export default function HomePage() {
 
         {/* Featured Products */}
       <FadeInSection>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 ">
+        <div className="bg-[#BDD715]" >
           <CategoryShowcase />
         </div>
       </FadeInSection>
@@ -70,16 +69,25 @@ export default function HomePage() {
   
       {/* Main Categories Section */}
       <FadeInSection>
-      <div className="container  mx-auto px-4 sm:px-6 lg:px-16 py-5  bg-cover bg-center">
+      <div>
           <CategoryGrid />
         </div>
       </FadeInSection>
 
       {/* Main Categories Section */}
       <FadeInSection>
-      <div className="container  mx-auto px-4 sm:px-6 lg:px-16 py-5  bg-cover bg-center">
+      <div>
           <LatestProducts />
         </div>
+      </FadeInSection>
+
+
+
+         {/* About Section */}
+         <FadeInSection>
+      <div>
+      <About />
+      </div>
       </FadeInSection>
 
 

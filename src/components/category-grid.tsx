@@ -82,10 +82,17 @@ export function CategoryGrid() {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
 
   return (
-    <section className=" ">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold  text-black mb-12">Explore Our Categories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <section className="py-16 bg-white relative overflow-hidden ">
+
+<div className="absolute inset-0 overflow-hidden">
+  <div className="absolute -left-1/3 w-2/3 h-full bg-gray-600 opacity-50 skew-x-12"></div>
+</div>
+
+<div className='flex justify-center '>
+        <h2 className="text-4xl text-black font-bold uppercase tracking-widest mb-4  w-[427px] h-[87px] justify-center flex items-center bg-transparent border-4 border-gray-900" style={{ boxShadow: "10px 10px 20px #1F2937" }}>OUR CATEGORIES</h2>
+        </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  mt-6">
           {categories.map((category) => (
             <Link
               key={category.name}
@@ -93,6 +100,7 @@ export function CategoryGrid() {
               className="group relative overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
               onMouseEnter={() => setHoveredCategory(category.name)}
               onMouseLeave={() => setHoveredCategory(null)}
+              style={{boxShadow:"20px 20px 2px #1F2937"}}
             >
               <Image
                 src={category.image || "/placeholder.svg"}
@@ -109,12 +117,12 @@ export function CategoryGrid() {
                     <ul className="text-gray-300 mb-4">
                       {category.popularItems.map((item, index) => (
                         <li key={index} className="flex items-center">
-                          <ArrowRight className="h-4 w-4 text-red-500 mr-2" />
+                          <ArrowRight className="h-4 w-4 text-[#BDD715] mr-2" />
                           {item}
                         </li>
                       ))}
                     </ul>
-                    <span className="inline-flex items-center text-red-500 font-semibold">
+                    <span className="inline-flex items-center text-[#BDD715] font-semibold">
                       Shop Now
                       <ArrowRight className="h-5 w-5 ml-2" />
                     </span>
@@ -124,8 +132,8 @@ export function CategoryGrid() {
             </Link>
           ))}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
   )
 }
 

@@ -70,10 +70,16 @@ const products: Product[] = [
 
 export default function LatestProducts() {
   return (
-    <section className="py-5">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-black mb-8">LATEST PRODUCTS</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    
+    <section className="py-16 bg-black relative overflow-hidden ">
+        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute  -right-1/4 w-3/4 h-full bg-[#BDD715] opacity-40 transform -rotate-12"></div>
+        </div>
+        <div className='flex justify-center '>
+        <h2 className="text-4xl text-white font-bold uppercase tracking-widest mb-4  w-[427px] h-[87px] justify-center flex items-center bg-transparent border-4 border-gray-400" style={{ boxShadow: "10px 10px 20px #1F2937" }}>LATEST PRODUCT</h2>
+        </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6  mt-8">
           {products.map((product) => (
             <Link key={product.id} href={`/product/${product.id}`}>
               <Card className="h-full hover:shadow-lg hover:transition-transform duration-300 hover:scale-110">
@@ -87,16 +93,17 @@ export default function LatestProducts() {
                     />
                   </div>
                   <div className="text-center">
-                    <p className="text-red-600 font-bold mb-2">Rs.{product.price.toLocaleString()}</p>
-                    <h3 className="font-medium text-gray-800">{product.name}</h3>
+                    <p className="text-[#BDD715] font-bold mb-2">Rs.{product.price.toLocaleString()}</p>
+                    <h3 className="font-medium text-gray-300">{product.name}</h3>
                   </div>
                 </CardContent>
               </Card>
             </Link>
           ))}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+   
   )
 }
 
