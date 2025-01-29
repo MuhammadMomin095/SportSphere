@@ -47,7 +47,7 @@ export function CategoryShowcase() {
         <div className="md:col-span-1 md:row-span-2 relative h-[600px] group">
           <Link href="/category/cricket-bats">
             <div className="relative w-full h-full overflow-hidden"
-              style={{boxShadow:"20px 20px 2px #1F2937"}}
+              style={{boxShadow:"10px 10px 2px #1F2937"}}
               >
               <Image
                 src="/Cricket.jpg"
@@ -68,7 +68,7 @@ export function CategoryShowcase() {
         <div className="md:col-span-1 space-y-6">
           {/* Weights and Dumbbells */}
           <Link href="/category/weights" className="block relative h-[290px] group">
-            <div className="relative w-full h-full overflow-hidden"style={{boxShadow:"20px 20px 2px #1F2937"}}>
+            <div className="relative w-full h-full overflow-hidden"style={{boxShadow:"10px 10px 2px #1F2937"}}>
               <Image
                 src="/gym.jpg"
                 alt="Weights and Dumbbells"
@@ -84,7 +84,7 @@ export function CategoryShowcase() {
 
           {/* Swimming Accessories */}
           <Link href="/category/swimming" className="block relative h-[290px] group">
-            <div className="relative w-full h-full overflow-hidden"style={{boxShadow:"20px 20px 2px #1F2937"}}>
+            <div className="relative w-full h-full overflow-hidden"style={{boxShadow:"10px 10px 2px #1F2937"}}>
               <Image
                 src="/swimming.jpg"
                 alt="Swimming Accessories"
@@ -102,7 +102,7 @@ export function CategoryShowcase() {
         {/* Camo Edition - Large Right Panel */}
         <div className="md:col-span-1 md:row-span-2 relative h-[600px] group">
           <Link href="/category/bags">
-            <div className="relative w-full h-full overflow-hidden"style={{boxShadow:"20px 20px 2px #1F2937"}}>
+            <div className="relative w-full h-full overflow-hidden"style={{boxShadow:"10px 10px 2px #1F2937"}}>
               <Image
                 src="/ccc.jpg"
                 alt="Camo Edition Sports Bag"

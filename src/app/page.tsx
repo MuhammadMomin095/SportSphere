@@ -10,6 +10,8 @@ import { CategoryShowcase } from "@/components/category-showcase"
 import LatestProducts from "@/components/latest-products"
 import About from "@/components/about"
 import HeroCarousel from "@/components/hero-carousel"
+import Banner from "@/components/banner"
+import SportsCarousel from "@/components/SportsCarousel"
 
 const FadeInSection = ({ children }: { children: ReactNode }) => {
   const controls = useAnimation()
@@ -42,23 +44,40 @@ const FadeInSection = ({ children }: { children: ReactNode }) => {
 export default function HomePage() {
   return (
     <div className="bg-black text-white">
-      {/* Hero Carousel */}
-      <HeroCarousel />
+        {/* Sports Carousel Section */}
+      <FadeInSection>
+        <div >
+          <SportsCarousel />
+        </div>
+      </FadeInSection>
 
 
-        {/* About Section */}
-       <FadeInSection>
-  <div
-    
-    >
-    <SportsShowcase />
-  </div>
-        </FadeInSection>
+        {/* Hero Carousel Section */}
+      <FadeInSection>
+        <div >
+          <HeroCarousel />
+        </div>
+      </FadeInSection>
+
+        {/* Banner Section */}
+      <FadeInSection>
+        <div >
+          <Banner />
+        </div>
+      </FadeInSection>
+
+
+        {/* Sports Showcase Section */}
+      <FadeInSection>
+        <div>
+          <SportsShowcase />
+        </div>
+      </FadeInSection>
 
 
 
 
-        {/* Featured Products */}
+        {/* Category Showcase Products */}
       <FadeInSection>
         <div className="bg-[#BDD715]" >
           <CategoryShowcase />
@@ -67,16 +86,19 @@ export default function HomePage() {
 
 
   
-      {/* Main Categories Section */}
+      {/* Category Grid Section */}
       <FadeInSection>
-      <div>
+        <div>
           <CategoryGrid />
         </div>
       </FadeInSection>
 
-      {/* Main Categories Section */}
+
+
+
+      {/* Latest Products Section */}
       <FadeInSection>
-      <div>
+        <div>
           <LatestProducts />
         </div>
       </FadeInSection>
@@ -84,10 +106,10 @@ export default function HomePage() {
 
 
          {/* About Section */}
-         <FadeInSection>
-      <div>
-      <About />
-      </div>
+      <FadeInSection>
+        <div>
+          <About />
+        </div>
       </FadeInSection>
 
 

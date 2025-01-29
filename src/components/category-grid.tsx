@@ -89,7 +89,7 @@ export function CategoryGrid() {
 </div>
 
 <div className='flex justify-center '>
-        <h2 className="text-4xl text-black font-bold uppercase tracking-widest mb-4  w-[427px] h-[87px] justify-center flex items-center bg-transparent border-4 border-gray-900" style={{ boxShadow: "10px 10px 20px #1F2937" }}>OUR CATEGORIES</h2>
+        <h2 className="text-4xl text-black font-bold uppercase tracking-widest mb-4  w-[427px] h-[87px] justify-center flex items-center bg-transparent border-4 rounded-full border-gray-900" style={{ boxShadow: "10px 10px 20px #1F2937" }}>OUR CATEGORIES</h2>
         </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  mt-6">
