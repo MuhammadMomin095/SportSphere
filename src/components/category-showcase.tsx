@@ -11,21 +11,21 @@ const categories = [
     subtitle: "PREMIUM QUALITY",
     image:
       "/Cricket.jpg",
-    href: "/category/cricket-bats",
+    href: "/categories/cricket-bats",
     gridArea: "span 2 / span 1",
   },
   {
     id: 2,
     name: "WEIGHTS AND DUMBBELLS",
     image: "/gym.jpg",
-    href: "/category/weights",
+    href: "/categories/weights",
     gridArea: "span 1 / span 1",
   },
   {
     id: 3,
     name: "SWIMMING ACCESSORIES",
     image: "/swimming.jpg",
-    href: "/category/swimming",
+    href: "/categories/swimming",
     gridArea: "span 1 / span 1",
   },
   {
@@ -33,7 +33,7 @@ const categories = [
     name: "SNOOKERS",
     subtitle: "Snookers",
     image: "/ccc.jpg",
-    href: "/category/bags",
+    href: "/categories/bags",
     gridArea: "span 2 / span 1",
   },
 ]
@@ -67,7 +67,7 @@ export function CategoryShowcase() {
         {/* Center Column - Weights and Swimming */}
         <div className="md:col-span-1 space-y-6">
           {/* Weights and Dumbbells */}
-          <Link href="/category/weights" className="block relative h-[290px] group">
+          <Link href="/categories/Weights" className="block relative h-[290px] group">
             <div className="relative w-full h-full overflow-hidden"style={{boxShadow:"10px 10px 2px #1F2937"}}>
               <Image
                 src="/gym.jpg"

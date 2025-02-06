@@ -76,6 +76,13 @@ const categories = [
     description: "Dominate the court with our squash rackets, balls, and protective eyewear.",
     popularItems: ["Squash Rackets", "Squash Balls", "Protective Goggles"],
   },
+  {
+    name: "Indoor Games",
+    image: "/indoor/15.jpg",
+    href: "/categories/Indoor",
+    description: "Dominate the court with our squash rackets, balls, and protective eyewear.",
+    popularItems: ["Ludo", "Monopoly", "Chees"],
+  },
 ]
 
 export function CategoryGrid() {

@@ -28,7 +28,36 @@ const categories = [
         name: "Babolat Pure Drive",
         price: 42000,
         image:
-          "/boxing.jpg",
+          "/boxing/1.jpg",
+        brand: "Babolat",
+      },
+      {
+        id: "boxing-mma-3",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/boxing/2.jpg",
+        brand: "Babolat",
+      },{
+        id: "boxing-mma-4",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/boxing/3.jpg",
+        brand: "Babolat",
+      },{
+        id: "boxing-mma-5",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/boxing/4.jpg",
+        brand: "Babolat",
+      },{
+        id: "boxing-mma-6",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/boxing/5.jpg",
         brand: "Babolat",
       },
     ],
@@ -83,7 +112,7 @@ const categories = [
         name: "Wilson Pro Staff",
         price: 45000,
         image:
-          "/snooker.jpg",
+          "/snooker/1.jpg",
         brand: "Wilson",
       },
       {
@@ -91,8 +120,121 @@ const categories = [
         name: "Babolat Pure Drive",
         price: 42000,
         image:
-          "/ccc.jpg",
+          "/snooker/2.jpg",
         brand: "Babolat",
+      },
+      {
+        id: "snookers-3",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/snooker/3.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "snookers-4",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/snooker/4.jpg",
+        brand: "Babolat",
+      },{
+        id: "snookers-5",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/snooker/5.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "snookers-6",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/snooker/6.jpg",
+        brand: "Babolat",
+      },{
+        id: "snookers-7",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/snooker/7.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "snookers-8",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/snooker/8.jpg",
+        brand: "Babolat",
+      },{
+        id: "snookers-9",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/snooker/9.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "snookers-10",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/snooker/10.jpg",
+        brand: "Babolat",
+      },{
+        id: "snookers-11",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/snooker/11.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "snookers-12",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/snooker/12.jpg",
+        brand: "Babolat",
+      },{
+        id: "snookers-13",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/snooker/13.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "snookers-14",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/snooker/14.jpg",
+        brand: "Babolat",
+      },{
+        id: "snookers-15",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/snooker/15.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "snookers-16",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/snooker/16.jpg",
+        brand: "Babolat",
+      },{
+        id: "snookers-17",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/snooker/17.jpg",
+        brand: "Wilson",
       },
     ],
   },
@@ -131,6 +273,28 @@ const categories = [
           "/basketball.jpg",
         brand: "Wilson",
       },
+      {
+        id: "basketball-2",
+        name: "Wilson NBA Ball",
+        price: 8000,
+        image:
+          "/basketball/1.jpg",
+        brand: "Wilson",
+      },{
+        id: "basketball-3",
+        name: "Wilson NBA Ball",
+        price: 8000,
+        image:
+          "/basketball/2.jpg",
+        brand: "Wilson",
+      },{
+        id: "basketball-4",
+        name: "Wilson NBA Ball",
+        price: 8000,
+        image:
+          "/basketball/3.jpg",
+        brand: "Wilson",
+      },
     ],
   },
 
@@ -143,7 +307,7 @@ const categories = [
         name: "Wilson Pro Staff",
         price: 45000,
         image:
-          "/tabletinus.jpg",
+          "/tinus/1.jpg",
         brand: "Wilson",
       },
       {
@@ -151,8 +315,121 @@ const categories = [
         name: "Babolat Pure Drive",
         price: 42000,
         image:
-          "/tabletinus.jpg",
+          "/tinus/2.jpg",
         brand: "Babolat",
+      },
+      {
+        id: "tennis-3",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/tinus/3.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "tennis-4",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/tinus/4.jpg",
+        brand: "Babolat",
+      },{
+        id: "tennis-5",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/tinus/5.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "tennis-6",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/tinus/6.jpg",
+        brand: "Babolat",
+      },{
+        id: "tennis-7",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/tinus/7.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "tennis-8",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/tinus/8.jpg",
+        brand: "Babolat",
+      },{
+        id: "tennis-9",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/tinus/9.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "tennis-10",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/tinus/10.jpg",
+        brand: "Babolat",
+      },{
+        id: "tennis-11",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/tinus/11.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "tennis-12",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/tinus/12.jpg",
+        brand: "Babolat",
+      },{
+        id: "tennis-13",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/tinus/13.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "tennis-14",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/tinus/14.jpg",
+        brand: "Babolat",
+      },{
+        id: "tennis-15",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/tinus/15.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "tennis-16",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/tinus/16.jpg",
+        brand: "Babolat",
+      },{
+        id: "tennis-17",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/tinus/17.jpg",
+        brand: "Wilson",
       },
     ],
   },
@@ -215,7 +492,354 @@ const categories = [
         name: "Babolat Pure Drive",
         price: 42000,
         image:
-          "/squash.jpg",
+          "/squash/1.jpg",
+        brand: "Babolat",
+      },
+      {
+        id: "Squash-3",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/squash/2.jpg",
+        brand: "Babolat",
+      },{
+        id: "Squash-4",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/squash/3.jpg",
+        brand: "Babolat",
+      },{
+        id: "Squash-5",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/squash/4.jpg",
+        brand: "Babolat",
+      },
+    ],
+  }, 
+
+
+
+  {
+    id: "Weights",
+    name: "Gym Assessories",
+    products: [
+      {
+        id: "gym-1",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/gym/1.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "gym-2",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/2.jpg",
+        brand: "Babolat",
+      },
+      {
+        id: "gym-3",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/3.jpg",
+        brand: "Babolat",
+      },{
+        id: "gym-4",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/4.jpg",
+        brand: "Babolat",
+      },{
+        id: "gym-5",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/5.jpg",
+        brand: "Babolat",
+      },
+      {
+        id: "gym-6",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/gym/6.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "gym-7",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/7.jpg",
+        brand: "Babolat",
+      },
+      {
+        id: "gym-8",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/8.jpg",
+        brand: "Babolat",
+      },{
+        id: "gym-9",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/9.jpg",
+        brand: "Babolat",
+      },{
+        id: "gym-10",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/10.jpg",
+        brand: "Babolat",
+      },
+      {
+        id: "gym-11",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/11.jpg",
+        brand: "Babolat",
+      },{
+        id: "gym-12",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/12.jpg",
+        brand: "Babolat",
+      },{
+        id: "gym-13",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/13.jpg",
+        brand: "Babolat",
+      },{
+        id: "gym-14",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/gym/14.jpg",
+        brand: "Babolat",
+      }
+    ],
+  }, 
+  
+  
+  {
+    id: "Indoor",
+    name: "Indoor Games",
+    products: [
+      
+      {
+        id: "Indoor-1",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/1.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-2",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/2.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-3",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/3.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-4",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/4.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-5",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/5.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-6",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/6.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-7",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/7.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-8",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/8.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-9",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/9.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-10",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/10.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-11",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/11.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-12",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/12.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-13",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/13.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-14",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/14.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-15",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/15.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-16",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/16.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-17",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/17.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-18",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/18.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-19",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/19.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-20",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/20.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-21",
+        name: "Wilson Pro Staff",
+        price: 45000,
+        image:
+          "/indoor/21.jpg",
+        brand: "Wilson",
+      },
+      {
+        id: "Indoor-22",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/22.jpg",
+        brand: "Babolat",
+      },
+      {
+        id: "Indoor-23",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/23.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-24",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/24.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-25",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/25.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-26",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/26.jpg",
+        brand: "Babolat",
+      },{
+        id: "Indoor-27",
+        name: "Babolat Pure Drive",
+        price: 42000,
+        image:
+          "/indoor/27.jpg",
         brand: "Babolat",
       },
     ],
