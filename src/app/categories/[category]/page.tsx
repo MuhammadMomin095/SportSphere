@@ -63,7 +63,7 @@ const categories = [
     ],
   },{
     id: "cricket",
-    name: "Cricket KIts",
+    name: "Cricket Kits",
     products: [
       {
         id: "cricket-1",

@@ -15,56 +15,56 @@ const products: Product[] = [
     name: "UT PRO PLAYERS",
     price: 35000.0,
     imageUrl:
-      "/1.jpg",
+      "/new-arrivals.jpg",
   },
   {
     id: "2",
     name: "MB Hpro",
     price: 50000.0,
     imageUrl:
-      "/1.jpg",
+      "/mm.jpg",
   },
   {
     id: "3",
     name: "MB Lala Edition",
     price: 30000.0,
     imageUrl:
-      "/1.jpg",
+      "/snooker/8.jpg",
   },
   {
     id: "4",
     name: "MB Special Edition",
     price: 65000.0,
     imageUrl:
-      "/1.jpg",
+      "/snooker.jpg",
   },
   {
     id: "5",
     name: "UT PRO PLAYERS",
     price: 35000.0,
     imageUrl:
-      "/1.jpg",
+      "/snooker/10.jpg",
   },
   {
     id: "6",
     name: "MB Hpro",
     price: 50000.0,
     imageUrl:
-      "/1.jpg",
+      "/snooker/11.jpg",
   },
   {
     id: "7",
     name: "MB Lala Edition",
     price: 30000.0,
     imageUrl:
-      "/1.jpg",
+      "/snooker/12.jpg",
   },
   {
     id: "8",
     name: "MB Special Edition",
     price: 65000.0,
     imageUrl:
-      "/1.jpg",
+      "/snooker/13.jpg",
   },
 ]
 
