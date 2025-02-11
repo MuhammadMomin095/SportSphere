@@ -82,4 +82,3 @@ export function MegaMenu({ isSheet = false, closeSheet }: MegaMenuProps) {
     </nav>
   )
 }
-
